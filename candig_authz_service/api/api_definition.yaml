@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  description: |
+    This is an implementation for the Authorization service for CanDIG v2
+  version: 0.1.0-oas3
+  title: Authorization API
+tags:
+  - name: authorization
+    description: Operations available to retrieve authorization information
+paths:
+  /authz:
+    get:
+      tags:
+        - authorization
+      summary: |
+        Returns the authorization levels of a user
+      operationId: candig_authz_service.api.operations.get_authz
+      parameters:
+        - in: query
+          name: issuer
+          schema:
+            type: string
+          description: The keycloak issuer of the user.
+          required: true
+        - in: query
+          name: username
+          schema:
+            type: string
+          description: Username to query.
+          required: true
+        - in: query
+          name: project
+          schema:
+            type: string
+          description: The name of the project
+      responses:
+        '200':
+          description: A JSON object that contains the access level info.
+          content:
+            application/json:
+              schema:
+                type: object
+                example: {"mock1": 4, "mock2": 3, "mock3": 2}
+        '400':
+          description: bad input parameter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: 400
+                message: Invalid Parameter. Check Request
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              example:
+                code: 500
+                message: Internal Server Error
+components:
+  schemas:
+    Error:
+      type: object
+      required:
+        - message
+        - code
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+    Success:
+      type: object
+      required:
+        - message
+        - code
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+
