@@ -6,9 +6,9 @@ decorator==4.3.2
 openapi-core==0.11.0
 pyyaml>=4.2b1
 swagger-ui-bundle==0.0.5
-pronto==1.1.3
 
 uwsgi==2.0.18
+pandas
 
 
 # jsonschema[format] requires the following otherwise we get an error:

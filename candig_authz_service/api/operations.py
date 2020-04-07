@@ -11,6 +11,7 @@ from sqlalchemy import exc, or_
 from candig_authz_service.orm import get_session, ORMException
 from candig_authz_service.orm.models import Authorization
 from candig_authz_service import orm
+from candig_authz_service.api.user_access_reader import UserAccessMap
 from candig_authz_service.api.logging import apilog, logger
 from candig_authz_service.api.logging import structured_log as struct_log
 from candig_authz_service.api.exceptions import IdentifierFormatError
@@ -114,9 +115,30 @@ def _report_write_error(typename, exception, **kwargs):
     err = dict(message=message, code=500)
     return err
 
+global access_map = UserAccessMap()
+access_map.initializeUserAccess()
+
 @apilog
 def get_authz(issuer, username, project=None):
     """
+    Return authorization info of a user.
+
+    @param: issuer: The keycloak issuer of the user.
+    @param: username: The username of the user.
+    @param: project: Optional. Only this project's authorization info should be returned.
+
+    @response: A JSON object with project being the key, and access_level being the value.
+    """
+    q = access_map.getUserAccessMap(issuer, username))
+
+    pass
+    
+
+
+@apilog
+def get_authz_sql(issuer, username, project=None):
+    """
+    TODO: Implement a SQL-based data lookup.
     Return authorization info of a user.
 
     @param: issuer: The keycloak issuer of the user.
