@@ -1,4 +1,5 @@
-import pd
+import os
+import pandas as pd
 
 class UserAccessMap(object):
     """

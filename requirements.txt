@@ -8,7 +8,7 @@ pyyaml>=4.2b1
 swagger-ui-bundle==0.0.5
 
 uwsgi==2.0.18
-pandas=1.0.1
+pandas==1.0.1
 
 
 # jsonschema[format] requires the following otherwise we get an error:

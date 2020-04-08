@@ -115,7 +115,7 @@ def _report_write_error(typename, exception, **kwargs):
     err = dict(message=message, code=500)
     return err
 
-global access_map = UserAccessMap()
+access_map = UserAccessMap()
 access_map.initializeUserAccess()
 
 @apilog
@@ -129,7 +129,9 @@ def get_authz(issuer, username, project=None):
 
     @response: A JSON object with project being the key, and access_level being the value.
     """
-    q = access_map.getUserAccessMap(issuer, username))
+    q = access_map.getUserAccessMap(issuer, username)
+
+    print(q)
 
     pass
     
