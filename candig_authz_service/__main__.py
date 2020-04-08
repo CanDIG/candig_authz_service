@@ -42,9 +42,9 @@ def main(args=None):
     app.app.config["name"] = args.name
     app.app.config["self"] = "http://{}/{}".format(args.host, args.port)
 
-    define("dbfile", default=args.database)
-    candig_authz_service.orm.init_db()
-    db_session = candig_authz_service.orm.get_session()
+    # define("dbfile", default=args.database)
+    # candig_authz_service.orm.init_db()
+    # db_session = candig_authz_service.orm.get_session()
 
     @app.app.teardown_appcontext
     def shutdown_session(exception=None):
