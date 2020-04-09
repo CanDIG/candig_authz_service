@@ -20,3 +20,14 @@ class AuthorizationError(Exception):
     def __init__(self):
         message = "Key not authorized to perform this action"
         super().__init__(message)
+
+
+class ConfigurationException(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+        
+
+class InvalidAccessListException(Exception):
+    def __init__(self, level):
+        message = "This is an invalid level: {}".format(level)
+        super().__init__(message)
