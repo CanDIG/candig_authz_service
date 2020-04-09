@@ -130,7 +130,15 @@ def get_authz(issuer, username, project=None):
     @response: A JSON object with project being the key, and access_level being the value.
     """
     q = access_map.getUserAccessMap(issuer, username)
-    
+
+    if project:
+        if project in q:
+            res = {}
+            res[project] = q[project]
+            return res, 200
+        else:
+            return {}, 200
+
     return q, 200
     
 
