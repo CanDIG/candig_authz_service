@@ -42,15 +42,16 @@ def main(args=None):
     app.app.config["name"] = args.name
     app.app.config["self"] = "http://{}/{}".format(args.host, args.port)
 
+    app.run(host=args.host, port=args.port)
     # define("dbfile", default=args.database)
     # candig_authz_service.orm.init_db()
     # db_session = candig_authz_service.orm.get_session()
 
-    @app.app.teardown_appcontext
-    def shutdown_session(exception=None):
-        db_session.remove()
+    # @app.app.teardown_appcontext
+    # def shutdown_session(exception=None):
+    #     db_session.remove()
 
-    return app, args.port
+    # return app, args.port
 
 
 def configure_app():
@@ -83,10 +84,14 @@ app = configure_app()
 application = app.app
 
 if __name__ == "__main__":
-    APPLICATION, PORT = main()
-    APPLICATION.app.logger.info(
-        "{} running at {}".format(
-            APPLICATION.app.config["name"], APPLICATION.app.config["self"]
-        )
-    )
-    APPLICATION.run(port=PORT)
+    main()
+
+    # APPLICATION, PORT = main()
+    # APPLICATION.app.logger.info(
+    #     "{} running at {}".format(
+    #         APPLICATION.app.config["name"], APPLICATION.app.config["self"]
+    #     )
+    # )
+
+    # print("going to start server")
+    # APPLICATION.run(port=PORT)

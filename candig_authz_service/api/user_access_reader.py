@@ -60,6 +60,8 @@ class UserAccessMap(object):
 
     def getUserAccessMap(self, issuer, username):
         try:
+            print("get request")
+            print(self.user_access_map)
             access_map = self.user_access_map[(issuer, username)]
         except KeyError:
             access_map = {}
