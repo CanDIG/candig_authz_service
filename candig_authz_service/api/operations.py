@@ -119,13 +119,13 @@ access_map = UserAccessMap()
 access_map.initializeUserAccess()
 
 @apilog
-def get_authz(issuer, username, project=None):
+def get_authz(issuer, username, dataset=None):
     """
     Return authorization info of a user.
 
     @param: issuer: The keycloak issuer of the user.
     @param: username: The username of the user.
-    @param: project: Optional. Only this project's authorization info should be returned.
+    @param: dataset: Optional. Only this dataset's authorization info should be returned.
 
     @response: A JSON object with project being the key, and access_level being the value.
     """

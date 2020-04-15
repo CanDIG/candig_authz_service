@@ -29,10 +29,10 @@ paths:
           description: Username to query.
           required: true
         - in: query
-          name: project
+          name: dataset
           schema:
             type: string
-          description: The name of the project
+          description: The name of the dataset
       responses:
         '200':
           description: A JSON object that contains the access level info.
