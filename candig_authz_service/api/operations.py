@@ -131,10 +131,10 @@ def get_authz(issuer, username, dataset=None):
     """
     q = access_map.getUserAccessMap(issuer, username)
 
-    if project:
-        if project in q:
+    if dataset:
+        if dataset in q:
             res = {}
-            res[project] = q[project]
+            res[dataset] = q[dataset]
             return res, 200
         else:
             return {}, 200
