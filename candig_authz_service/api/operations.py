@@ -129,6 +129,14 @@ def get_authz(issuer, username, dataset=None):
 
     @response: A JSON object with project being the key, and access_level being the value.
     """
+    if not issuer:
+        err = dict(message="No issuer provided", code=400)
+        return err, 400
+
+    if not username:
+        err = dict(message="No username provided", code=400)
+        return err, 400
+
     q = access_map.getUserAccessMap(issuer, username)
 
     for key in q:
