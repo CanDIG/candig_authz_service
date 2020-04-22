@@ -1,6 +1,7 @@
 """
 Methods to handle incoming authorization service requests
 """
+import os
 import datetime
 
 import flask
@@ -115,8 +116,21 @@ def _report_write_error(typename, exception, **kwargs):
     err = dict(message=message, code=500)
     return err
 
-access_map = UserAccessMap()
-access_map.initializeUserAccess()
+def load_access_map():
+    """
+    Load access_list into a global variable access_map here.
+    """
+    global access_map
+    access_map = UserAccessMap()
+    access_map.initializeUserAccess()
+
+load_access_map()
+
+def verify_access_list_validity():
+    if access_map.getListUpdated() != os.path.getmtime(access_map.getFilePath()):
+        print("Reloaded")
+        load_access_map()
+
 
 @apilog
 def get_authz(issuer, username, dataset=None):
@@ -129,6 +143,8 @@ def get_authz(issuer, username, dataset=None):
 
     @response: A JSON object with project being the key, and access_level being the value.
     """
+    verify_access_list_validity()
+
     if not issuer:
         err = dict(message="No issuer provided", code=400)
         return err, 400
