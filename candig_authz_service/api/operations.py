@@ -131,6 +131,9 @@ def get_authz(issuer, username, dataset=None):
     """
     q = access_map.getUserAccessMap(issuer, username)
 
+    for key in q:
+        q[key] = int(q[key])
+
     if dataset:
         if dataset in q:
             res = {}
@@ -140,7 +143,6 @@ def get_authz(issuer, username, dataset=None):
             return {}, 200
 
     return q, 200
-    
 
 
 @apilog
