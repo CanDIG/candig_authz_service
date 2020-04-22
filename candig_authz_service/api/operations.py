@@ -153,7 +153,7 @@ def get_authz(issuer, username, dataset=None):
         err = dict(message="No username provided", code=400)
         return err, 400
 
-    q = access_map.getUserAccessMap(issuer, username)
+    q = access_map.getUserAccessMap(issuer, username.lower())
 
     for key in q:
         q[key] = int(q[key])
