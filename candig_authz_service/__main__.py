@@ -94,13 +94,3 @@ application = app.app
 
 if __name__ == "__main__":
     main()
-
-    # APPLICATION, PORT = main()
-    # APPLICATION.app.logger.info(
-    #     "{} running at {}".format(
-    #         APPLICATION.app.config["name"], APPLICATION.app.config["self"]
-    #     )
-    # )
-
-    # print("going to start server")
-    # APPLICATION.run(port=PORT)
