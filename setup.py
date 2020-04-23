@@ -29,6 +29,7 @@ setuptools.setup(
     test_suite='tests',
     url="https://github.com/CanDIG/candig_authz_service",
     packages=setuptools.find_packages(),
+    include_package_data=True,
     data_files=data_files,
     classifiers=[
         "Programming Language :: Python :: 3",
