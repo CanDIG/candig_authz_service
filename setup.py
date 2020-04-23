@@ -26,10 +26,10 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=install_requires,
-    data_files=data_files,
     test_suite='tests',
     url="https://github.com/CanDIG/candig_authz_service",
     packages=setuptools.find_packages(),
+    data_files=data_files,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",

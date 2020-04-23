@@ -5,7 +5,6 @@ import argparse
 import logging
 import pkg_resources
 
-
 import connexion
 
 from tornado.options import define
