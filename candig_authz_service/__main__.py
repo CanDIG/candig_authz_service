@@ -42,7 +42,13 @@ def main(args=None):
     app.app.logger.setLevel(numeric_loglevel)
 
     app.app.config["name"] = args.name
-    app.app.config["self"] = "http://{}/{}".format(args.host, args.port)
+    app.app.config["self"] = "http://{}:{}".format(args.host, args.port)
+
+    app.app.logger.info(
+        "{} running at {}".format(
+            app.app.config["name"], app.app.config["self"]
+        )
+    )
 
     app.run(host=args.host, port=args.port)
     # define("dbfile", default=args.database)
@@ -60,6 +66,7 @@ def configure_app():
     app = connexion.FlaskApp(
         __name__, server="tornado", options={"swagger_url": "/"}
     )
+
     api_def = pkg_resources.resource_filename('candig_authz_service',
                                               'api/api_definition.yaml')
 
