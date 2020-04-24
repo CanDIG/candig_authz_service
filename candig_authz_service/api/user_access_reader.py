@@ -12,8 +12,8 @@ class UserAccessMap(object):
         self.user_access_map = {}
         self.file_path = "access_list.tsv"
 
-        if not self.file_path:
-            raise exceptions.ConfigurationException("No user access list defined")
+        if not os.path.isfile(self.file_path):
+            raise exceptions.ConfigurationException("No user access list defined.")
 
         try:
             self.access_list = pd.read_csv(self.file_path, sep='\t', index_col=['issuer', 'username'])
