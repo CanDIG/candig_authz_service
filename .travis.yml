@@ -7,5 +7,5 @@ install:
     - pip install -r requirements.txt
 
 script:
-    - flake8 candig_cnv_service/
-    - pytest --cov=candig_cnv_service tests
+    - flake8 candig_authz_service/
+    - pytest --cov=candig_authz_service tests
