@@ -50,6 +50,8 @@ def main(args=None):
     )
 
     app.run(host=args.host, port=args.port)
+
+    # TODO: Do not remove this. Implement this.
     # define("dbfile", default=args.database)
     # candig_authz_service.orm.init_db()
     # db_session = candig_authz_service.orm.get_session()
@@ -57,8 +59,6 @@ def main(args=None):
     # @app.app.teardown_appcontext
     # def shutdown_session(exception=None):
     #     db_session.remove()
-
-    # return app, args.port
 
 
 def configure_app():

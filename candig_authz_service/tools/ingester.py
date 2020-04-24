@@ -18,7 +18,8 @@ from candig_authz_service.orm.models import authorization  # noqa: E402
 
 class Ingester:
     """
-
+    This class ingests a candig-server v1-compatible access_list into the database.
+    TODO: Implement this
     """
     def __init__(self, database, patient, sample, tsv_file):
         """Constructor method
