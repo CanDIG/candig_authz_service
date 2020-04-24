@@ -2,14 +2,12 @@
 Methods to handle incoming authorization service requests
 """
 import os
-import datetime
-
-import flask
 import uuid
 
-from sqlalchemy import exc, or_
+import flask
+# from sqlalchemy import exc, or_
 
-from candig_authz_service.orm import get_session, ORMException
+from candig_authz_service.orm import get_session  # , ORMException
 from candig_authz_service.orm.models import Authorization
 from candig_authz_service import orm
 from candig_authz_service.api.user_access_reader import UserAccessMap
@@ -116,6 +114,7 @@ def _report_write_error(typename, exception, **kwargs):
     err = dict(message=message, code=500)
     return err
 
+
 def load_access_map():
     """
     Load access_list into a global variable access_map here.
@@ -124,7 +123,9 @@ def load_access_map():
     access_map = UserAccessMap()
     access_map.initializeUserAccess()
 
+
 load_access_map()
+
 
 def verify_access_list_validity():
     if access_map.getListUpdated() != os.path.getmtime(access_map.getFilePath()):

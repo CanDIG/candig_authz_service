@@ -1,11 +1,11 @@
 """
 SQLAlchemy models for database
 """
-from sqlalchemy import Column, String, Integer, ForeignKey, Float
-from sqlalchemy.orm import relationship
+from sqlalchemy import Column, String, Integer  # , ForeignKey, Float
+# from sqlalchemy.orm import relationship
 
 from candig_authz_service.orm import Base
-from candig_authz_service.orm.custom_types import GUID, JsonArray, TimeStamp
+from candig_authz_service.orm.custom_types import TimeStamp
 
 
 class Authorization(Base):

@@ -5,15 +5,15 @@ The ingester module provides methods to ingest tsv files
 import os
 import sys
 
-from sqlalchemy.exc import IntegrityError
+# from sqlalchemy.exc import IntegrityError
 
 sys.path.append(os.getcwd())
 
-from candig_authz_service.api.exceptions import FileTypeError  # noqa: E402
-from candig_authz_service.api.exceptions import KeyExistenceError  # noqa: E402
-from candig_authz_service.api.exceptions import HeaderError  # noqa: E402
-from candig_authz_service.orm import init_db, get_engine  # noqa: E402
-from candig_authz_service.orm.models import authorization  # noqa: E402
+# from candig_authz_service.api.exceptions import FileTypeError  # noqa: E402
+# from candig_authz_service.api.exceptions import KeyExistenceError  # noqa: E402
+# from candig_authz_service.api.exceptions import HeaderError  # noqa: E402
+# from candig_authz_service.orm import init_db, get_engine  # noqa: E402
+# from candig_authz_service.orm.models import authorization  # noqa: E402
 
 
 class Ingester:
@@ -69,7 +69,6 @@ class Ingester:
         """
         # TODO: Use existing TSV files to population authz info.
         pass
-
 
     def upload(self):
         """
