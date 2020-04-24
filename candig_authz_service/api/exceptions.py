@@ -25,7 +25,7 @@ class AuthorizationError(Exception):
 class ConfigurationException(Exception):
     def __init__(self, message):
         super().__init__(message)
-        
+
 
 class InvalidAccessListException(Exception):
     def __init__(self, level):

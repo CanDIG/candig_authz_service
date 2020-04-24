@@ -1,4 +1,6 @@
 import os
+import math
+
 import pandas as pd
 import candig_authz_service.api.exceptions as exceptions
 

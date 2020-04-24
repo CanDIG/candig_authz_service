@@ -7,8 +7,8 @@ import pkg_resources
 
 import connexion
 
-from tornado.options import define
-import candig_authz_service.orm
+# from tornado.options import define
+# import candig_authz_service.orm
 
 
 def main(args=None):
