@@ -1,0 +1,4 @@
+include candig_authz_service/api/api_definition.yaml
+include README.md
+
+recursive-include candig_authz_service
