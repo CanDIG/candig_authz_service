@@ -47,17 +47,13 @@ class Ingester:
         :raises: KeyExistenceError
         :return: engine object
         :rtype: `~sqlalchemy.engine.Engine`
+
+        TODO: Implement this
         """
         pass
 
         # init_db(self.db)
         # engine = get_engine()
-        # with engine.connect() as connection:
-        #     result = connection.execute(
-        #         "select * from authorization where username=\"{}\""
-        #         .format(self.authorization)).first()
-        #     if self.patient != result[1]:
-        #         raise KeyExistenceError(self.sample)
         # return engine
 
     def ingest_tsv(self):

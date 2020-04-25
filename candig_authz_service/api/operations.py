@@ -124,10 +124,10 @@ def load_access_map():
     access_map.initializeUserAccess()
 
 
-load_access_map()
-
-
 def verify_access_list_validity():
+    """
+    Checks if the access_list.tsv has been updated. If it has, reload.
+    """
     if access_map.getListUpdated() != os.path.getmtime(access_map.getFilePath()):
         print("Reloaded")
         load_access_map()
@@ -224,3 +224,6 @@ def validate_uuid_string(field_name, uuid_str):
         uuid.UUID(uuid_str)
     except ValueError:
         raise IdentifierFormatError(field_name)
+
+
+load_access_map()
