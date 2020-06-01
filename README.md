@@ -13,7 +13,7 @@ pip install -r requirements.txt
 Alternatively, you could also install from source
 
 ```
-git install git+https://github.com/candig/candig_authz_service.git
+pip install git+https://github.com/candig/candig_authz_service.git
 ```
 
 ### Preparing Access List
