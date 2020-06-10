@@ -8,6 +8,7 @@ pyyaml>=4.2b1
 swagger-ui-bundle==0.0.5
 uwsgi==2.0.18
 pandas==1.0.1
+prometheus-flask-exporter==0.13.0
 
 # jsonschema[format] requires the following otherwise we get an error:
 rfc3987==1.3.8
