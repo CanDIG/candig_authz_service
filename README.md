@@ -27,11 +27,11 @@ Please make sure your tsv file is correctly formatted by using tabs as the delim
 ```
 issuer      username        project1        project2        project3        projectN
 
-https://candigauth.bcgsc.ca/auth/realms/candig      userA   4       4       4       4
-https://candigauth.bcgsc.ca/auth/realms/candig      userB   4       X       0       1
+https://candigauth.bcgsc.ca/auth/realms/candig      user_a   4       4       4       4
+https://candigauth.bcgsc.ca/auth/realms/candig      user_b   4       X       0       1
 
-https://candigauth.uhnresearch.ca/auth/realms/CanDIG        userC   4       3       2       1
-https://candigauth.uhnresearch.ca/auth/realms/CanDIG        userD   X       X       4       4
+https://candigauth.uhnresearch.ca/auth/realms/CanDIG        user_c   4       3       2       1
+https://candigauth.uhnresearch.ca/auth/realms/CanDIG        user_d   X       X       4       4
 ```
 
 ### Running
@@ -41,3 +41,7 @@ The service can be started with:
 ```
 candig_authz_service --host 0.0.0.0 --port 8000
 ```
+
+### Known Limitations
+
+In the access_list.tsv you provide, the username must all be in lower case, this is because the look-up will convert all incoming requests' usernames to lower case.
